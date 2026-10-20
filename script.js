@@ -10,7 +10,7 @@ if (toggle) {
   });
 }
 
-const roles = ["I design PCBs", "I write Verilog"];
+const roles = ["i design PCBs", "embedded systems", "i code in Verilog", "i write", ];
 const target = document.getElementById("ty");
 let roleIndex = 0;
 let charIndex = 0;
@@ -21,15 +21,15 @@ function tick() {
   const current = roles[roleIndex];
   charIndex += deleting ? -1 : 1;
   target.textContent = current.slice(0, charIndex);
-  let delay = deleting ? 40 : 90;
+  let delay = deleting ? 20 : 50;
 
   if (!deleting && charIndex === current.length) {
     deleting = true;
-    delay = 1600;
+    delay = 800;
   } else if (deleting && charIndex === 0) {
     deleting = false;
     roleIndex = (roleIndex + 1) % roles.length;
-    delay = 350;
+    delay = 150;
   }
   setTimeout(tick, delay);
 }
